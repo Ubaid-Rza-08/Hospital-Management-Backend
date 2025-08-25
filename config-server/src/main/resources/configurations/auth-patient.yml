@@ -1,0 +1,68 @@
+#spring:
+##  application:
+##    name: auth-patient
+#  port: 8080
+#
+#  datasource:
+#    url: jdbc:postgresql://localhost:5432/hospitalMG
+#    username: postgres
+#    password: root
+#
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    show-sql: true
+#    # properties:
+#    #   hibernate:
+#    #     format_sql: false
+#    # defer-datasource-initialization: true
+#    # sql:
+#    #   init:
+#    #     mode: always
+#    #     data-locations: classpath:data.sql
+#
+#  security:
+#    oauth2:
+#      client:
+#        provider:
+#          twitter:
+#            authorization-uri: https://twitter.com/i/oauth2/authorize
+#            token-uri: https://api.twitter.com/2/oauth2/token
+#            user-info-uri: https://api.twitter.com/2/users/me
+#            user-name-attribute: id
+#        registration:
+#          google:
+#            client-id:
+#            client-secret:
+#            authorization-grant-type: authorization_code
+#            redirect-uri: "{baseUrl}/login/oauth2/code/google"
+#            scope:
+#              - openid
+#              - profile
+#              - email
+#          github:
+#            client-id: Ov23liDNZOj6fRNAyIr7
+#            client-secret: 7348245f6010707b73a9242b1fff741cf7bfa953
+#            authorization-grant-type: authorization_code
+#            redirect-uri: "{baseUrl}/login/oauth2/code/github"
+#            scope:
+#              - read:user
+#              - user:email
+#          twitter:
+#            client-id: asdlfjasldf
+#            client-secret: asldfjalsdfj
+#            provider: twitter
+#            authorization-grant-type: authorization_code
+#            redirect-uri: "http://localhost:8080/login/oauth2/code/twitter"
+#            scope:
+#              - tweet.read
+#              - users.read
+#              - offline.access
+#            client-name: Twitter
+#
+#server:
+#  servlet:
+#    context-path: /api/v1
+#
+#jwt:
+#  secretKey: "asdfhads9f67as98dfyaisudhfa98s67dfy89aishudfuays89dfyasi8df7asdf87987g98a7sg986a89sdf7y"
