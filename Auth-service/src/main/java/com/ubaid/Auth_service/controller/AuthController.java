@@ -2,6 +2,7 @@ package com.ubaid.Auth_service.controller;
 
 import com.ubaid.Auth_service.dto.*;
 import com.ubaid.Auth_service.security.AuthService;
+import com.ubaid.Auth_service.service.OtpService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -18,6 +19,8 @@ import java.util.HashSet;
 public class AuthController {
 
     private final AuthService authService;
+
+    private final OtpService otpService;
 
     @PostMapping("/login")
     public ResponseEntity<LoginResponseDto> login(@Valid @RequestBody LoginRequestDto loginRequestDto) {
@@ -73,5 +76,13 @@ public class AuthController {
             log.error("Error updating user roles for ID {}: {}", id, e.getMessage());
             return ResponseEntity.notFound().build();
         }
+    }
+    @PostMapping("/send-otp")
+    public String sendOtp(@Valid @RequestBody OtpRequest otpRequest) {
+        return otpService.generateAndSendOtp(otpRequest.getPhone());
+    }
+    @PostMapping("/verify-otp")
+    public LoginResponseDto verifyOtp(@Valid @RequestBody VerifyOtpRequest verifyOtpRequest) {
+        return otpService.verifyOtpAndGenerateToken(verifyOtpRequest.getPhone(),verifyOtpRequest.getOtp());
     }
 }

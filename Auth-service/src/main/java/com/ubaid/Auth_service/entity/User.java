@@ -47,6 +47,8 @@ public class User implements UserDetails {
 
     private String providerId;
 
+    private String phone;
+
     @ElementCollection(fetch = FetchType.EAGER)
     @Enumerated(EnumType.STRING)
     @CollectionTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"))

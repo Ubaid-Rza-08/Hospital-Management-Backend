@@ -110,6 +110,7 @@ public class AuthService {
                 .username(signupRequestDto.getUsername())
                 .email(signupRequestDto.getEmail())
                 .firstName(signupRequestDto.getFirstName())
+                .phone(signupRequestDto.getPhone())
                 .lastName(signupRequestDto.getLastName())
                 .providerId(providerId)
                 .providerType(authProviderType)

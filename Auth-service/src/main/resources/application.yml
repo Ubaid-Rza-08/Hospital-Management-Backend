@@ -3,8 +3,8 @@ spring:
     name: auth-patient
   datasource:
     url: jdbc:postgresql://localhost:5432/hospitalMG
-    username: postgres
-    password: root
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:root}
   jpa:
     hibernate:
       ddl-auto: update
@@ -20,8 +20,8 @@ spring:
             user-name-attribute: id
         registration:
           google:
-            client-id: jjkhfcjzhsxdkldfgjhdgf
-            client-secret: dfkujdsahfjisdghujfgh
+            client-id: ${GOOGLE_CLIENT_ID}
+            client-secret: ${GOOGLE_CLIENT_SECRET}
             authorization-grant-type: authorization_code
             redirect-uri: "{baseUrl}/login/oauth2/code/google"
             scope:
@@ -29,19 +29,19 @@ spring:
               - profile
               - email
           github:
-            client-id: jkhsdfghjsdgfvihjdfg
-            client-secret: jhdsfvbjhfvgbg
+            client-id: ${GITHUB_CLIENT_ID}
+            client-secret: ${GITHUB_CLIENT_SECRET}
             authorization-grant-type: authorization_code
             redirect-uri: "{baseUrl}/login/oauth2/code/github"
             scope:
               - read:user
               - user:email
           twitter:
-            client-id: scvhsgjdfvhjds
-            client-secret: fjghsadgfhsdggv
+            client-id: ${TWITTER_CLIENT_ID}
+            client-secret: ${TWITTER_CLIENT_SECRET}
             provider: twitter
             authorization-grant-type: authorization_code
-            redirect-uri: http://localhost:8080/login/oauth2/code/twitter
+            redirect-uri: "{baseUrl}/login/oauth2/code/twitter"
             scope:
               - tweet.read
               - users.read
@@ -54,4 +54,9 @@ server:
     context-path: /api/v1
 
 jwt:
-  secretKey: asdfhads9f67as98dfyaisudhfa98s67dfy89aishudfuays89dfyasi8df7asdf87987g98a7sg986a89sdf7ygit
+  secretKey: ${JWT_SECRET}
+
+twilio:
+  phoneNumber: ${TWILIO_PHONE_NUMBER}
+  account_sid: ${TWILIO_ACCOUNT_SID}
+  auth_token: ${TWILIO_AUTH_TOKEN}

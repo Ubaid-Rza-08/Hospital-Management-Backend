@@ -31,6 +31,8 @@ public class SignUpRequestDto {
     @Email(message = "Please provide a valid email address")
     private String email;
 
+    private String phone;
+
     @Builder.Default
     private Set<RoleType> roles = new HashSet<>();
 }
