@@ -31,6 +31,7 @@ import java.util.stream.Collectors;
 @Slf4j
 public class OtpService {
 
+
     private final UserRepository userRepository;
     private final TwilioConfig twilioConfig;
      private final StringRedisTemplate redisTemplate;
@@ -70,7 +71,6 @@ public class OtpService {
                     .map(RoleType::name)
                     .collect(Collectors.toSet());
 
-
             return new LoginResponseDto(jwt, user.getId(), user.getUsername(), roles);
         }
         else {
@@ -95,6 +95,4 @@ public class OtpService {
                 messageBody
         ).create();
     }
-
-
 }
